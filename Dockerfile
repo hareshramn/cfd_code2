@@ -21,11 +21,11 @@ RUN apt-get update && apt-get install -y \
  && echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc 
 RUN mkdir -p ${BUILD_DIR}/su2-build
 WORKDIR ${BUILD_DIR}/su2-build
-
+RUN apt-get install -y meson
 RUN git clone https://github.com/su2code/SU2.git
 WORKDIR ${BUILD_DIR}/su2-build/SU2
 RUN ./meson.py build -Denable-pywrapper=true
-
+RUN ./ninja -C build install
 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
