@@ -19,6 +19,11 @@ RUN apt-get update && apt-get install -y \
  && update-alternatives --install /usr/bin/python python /usr/bin/python3 10 \
  && /usr/sbin/update-ccache-symlinks \
  && echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc 
+RUN mkdir -p ${BUILD_DIR}/su2-build
+WORKDIR ${BUILD_DIR}/su2-build
+
+RUN git clone https://github.com/su2code/SU2.git
+WORKDIR ${BUILD_DIR}/su2-build/SU2
 
 
 
