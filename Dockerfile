@@ -1,1 +1,1 @@
-FROM ubuntu:20.04
+FROM hareshram/su2_code
