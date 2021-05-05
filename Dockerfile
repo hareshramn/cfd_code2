@@ -24,7 +24,7 @@ WORKDIR ${BUILD_DIR}/su2-build
 
 RUN git clone https://github.com/su2code/SU2.git
 WORKDIR ${BUILD_DIR}/su2-build/SU2
-
+RUN ./meson.py build -Denable-pywrapper=true
 
 
 
