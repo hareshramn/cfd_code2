@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 ENV LANG C.UTF-8
+ENV SU2_VERSION=7.1.1
+ENV BUILD_DIR=/tmp/build
 RUN apt-get update && apt-get install -y \
     python3 \
     pkg-config \
@@ -18,8 +20,11 @@ RUN apt-get update && apt-get install -y \
  && /usr/sbin/update-ccache-symlinks \
  && echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc 
 
+
+
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY compileSU2.sh /compileSU2.sh
+#COPY compileSU2.sh /compileSU2.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/compileSU2.sh"]
+#ENTRYPOINT ["/compileSU2.sh"]
