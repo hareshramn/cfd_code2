@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     swig \
     libopenmpi-dev \
     openmpi-bin \
+    meson \
     ccache \
  && rm -rf /var/lib/apt/lists/* \
  && update-alternatives --install /usr/bin/python python /usr/bin/python3 10 \
@@ -21,7 +22,6 @@ RUN apt-get update && apt-get install -y \
  && echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc 
 RUN mkdir -p ${BUILD_DIR}/su2-build
 WORKDIR ${BUILD_DIR}/su2-build
-RUN apt-get install -y meson
 RUN git clone https://github.com/su2code/SU2.git
 WORKDIR ${BUILD_DIR}/su2-build/SU2
 RUN ./meson.py build -Denable-pywrapper=true
