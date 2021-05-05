@@ -24,7 +24,9 @@ RUN mkdir -p ${BUILD_DIR}/su2-build
 WORKDIR ${BUILD_DIR}/su2-build
 RUN git clone https://github.com/su2code/SU2.git
 WORKDIR ${BUILD_DIR}/su2-build/SU2
-RUN ./meson.py build -Denable-pywrapper=true -Denable-autodiff=true -Denable-directdiff=true
+RUN ./meson.py build -Denable-pywrapper=true 
+RUN ./meson.py build --reconfigure -Denable-autodiff=true 
+RUN ./meson.py build --reconfigure -Denable-directdiff=true
 RUN ./ninja -C build install
 ENV SU2_RUN=/usr/local/bin
 ENV SU2_HOME=/tmp/build/su2-build/SU2
