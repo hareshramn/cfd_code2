@@ -10,7 +10,7 @@ RUN apt-get install sudo
 RUN sudo apt-get install build-essential -y
 RUN sudo apt-get install python-is-python3 -y
 #RUN sudo apt-get install cmake -y
-RUN sudo apt install openmpi-bin libopenmpi-dev -y
+RUN sudo apt-get install openmpi-bin libopenmpi-dev -y
 RUN echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 #RUN sudo apt install pkg-config -y
 
