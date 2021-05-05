@@ -8,4 +8,3 @@ RUN sudo apt install build-essential -y
 RUN sudo apt install cmake -y
 RUN sudo apt install python-is-python3 -y
 RUN sudo apt install openmpi-bin libopenmpi-dev
-RUN echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
