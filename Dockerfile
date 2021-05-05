@@ -1,4 +1,4 @@
-FROM hareshram/cfd_code
+FROM ubuntu-desktop
 COPY test/ /home/nimbix/
 COPY ./NAE/AppDef.json /etc/NAE/AppDef.json
 COPY NAE/screenshot.png /etc/NAE/screenshot.png
