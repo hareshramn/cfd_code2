@@ -2,10 +2,6 @@ FROM ubuntu:18.04
 ENV LANG C.UTF-8
 ENV SU2_VERSION=7.1.1
 ENV BUILD_DIR=/tmp/build
-ENV SU2_RUN=/usr/local/bin
-ENV SU2_HOME=/tmp/build/su2-build/SU2
-ENV PATH=$PATH:$SU2_RUN
-ENV PYTHONPATH=$PYTHONPATH:$SU2_RUN
 RUN apt-get update && apt-get install -y \
     python3 \
     pkg-config \
@@ -30,7 +26,10 @@ RUN git clone https://github.com/su2code/SU2.git
 WORKDIR ${BUILD_DIR}/su2-build/SU2
 RUN ./meson.py build -Denable-pywrapper=true
 RUN ./ninja -C build install
-
+ENV SU2_RUN=/usr/local/bin
+ENV SU2_HOME=/tmp/build/su2-build/SU2
+ENV PATH=$PATH:$SU2_RUN
+ENV PYTHONPATH=$PYTHONPATH:$SU2_RUN
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 #COPY compileSU2.sh /compileSU2.sh
