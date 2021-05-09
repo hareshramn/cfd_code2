@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
     openmpi-bin \
     meson \
     ccache \
+    gnuplot \
+    python3-matplotlib \
+    paraview \
  && rm -rf /var/lib/apt/lists/* \
  && update-alternatives --install /usr/bin/python python /usr/bin/python3 10 \
  && /usr/sbin/update-ccache-symlinks \
