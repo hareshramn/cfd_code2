@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     meson \
     ccache \
     xterm \
+    libreoffice \
     gnuplot \
     python3-matplotlib \
     paraview \
