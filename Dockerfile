@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     openmpi-bin \
     meson \
     ccache \
+    xterm \
     gnuplot \
     python3-matplotlib \
     paraview \
