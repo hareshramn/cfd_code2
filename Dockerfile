@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     python3-pip \
     git \
+    vim \
     build-essential \
     python3-numpy \
     python3-scipy \
